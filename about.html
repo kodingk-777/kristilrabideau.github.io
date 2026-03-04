@@ -23,7 +23,7 @@ html, body { height: 100%; overflow: hidden; font-family: 'Space Grotesk', sans-
   padding: 2.2rem 1.5rem 2rem 0.75rem; background: #fff; z-index: 20;
 }
 .sidebar-name { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.04em; line-height: 1.35; color: var(--ink); }
-.sidebar-roles { font-size: 0.65rem; font-weight: 300; color: var(--mid); line-height: 1.65; margin-top: 0.9rem; }
+.sidebar-roles { font-size: 0.65rem; font-weight: 300; color: var(--mid); line-height: 1.65; margin-top: 0.35rem; }
 .sidebar-logo { margin-top: 1.1rem; width: 64px; height: 64px; object-fit: contain; }
 .sidebar-link { margin-top: 1rem; font-size: 0.65rem; font-weight: 300; color: var(--mid); text-decoration: none; }
 .sidebar-link:hover { color: var(--ink); }
@@ -102,11 +102,11 @@ html, body { height: 100%; overflow: hidden; font-family: 'Space Grotesk', sans-
       <span class="about-label">About</span>
       <h1 class="about-name">Kristil Rabideau</h1>
       <div class="about-body">
-        <p>Content strategist, editor, and writer with 5+ years of experience across digital media, social platforms, and editorial work. Background in scriptwriting, developmental editing, and platform-native content creation — from video production and motion graphics to long-form essays and narrative development.</p>
-        <p>At Jellysmack, scaled social channels from zero to viral through data-driven content strategy and A/B testing. Through Studio R–M, create scripts and copy for digital brands and provide developmental editing for writers published in The New York Times and Newsweek. Run <a href="https://lemetro.substack.com" target="_blank" style="color:var(--pink);text-decoration:underline;text-underline-offset:3px;">LE MÉTRO</a>, a Substack publication exploring literature and culture through close reading and critique.</p>
-        <p>I approach projects with both editorial rigor and strategic thinking: shaping narratives, optimizing platform-native content, and producing work that resonates with audiences and meets performance goals.</p>
-        <p>Academic background includes a BA in Literature & Creative Writing from Columbia and MAs from Uppsala University and the American University of Paris.</p>
-        <p>Seeking roles in social media management, editorial content, or content marketing where storytelling, audience engagement, and strategic thinking intersect — with a particular interest in digital media and platform-native brand building.</p>
+        <p>I'm a content strategist, editor, and writer with 5+ years of experience across digital media, social platforms, and editorial work. My background spans scriptwriting, developmental editing, and platform-native content creation — from video production and motion graphics to long-form essays and narrative development.</p>
+        <p>At Jellysmack, I scaled social channels from zero to viral through data-driven content strategy and A/B testing. Through my studio, <a href="https://www.studior-m.com" target="_blank" style="color:var(--pink);text-decoration:underline;text-underline-offset:3px;">Studio R–M</a>, I write scripts and copy for digital brands and provide developmental editing for writers who have gone on to publish in The New York Times, Newsweek, and Wired. I also run <a href="https://lemetro.substack.com" target="_blank" style="color:var(--pink);text-decoration:underline;text-underline-offset:3px;">LE MÉTRO</a>, a Substack publication exploring literature and culture through close reading and critique.</p>
+        <p>I approach every project with both editorial rigor and strategic thinking — shaping narratives, building repeatable content systems, and producing work that resonates with audiences and meets performance goals.</p>
+        <p>I hold a BA in Literature & Creative Writing from Columbia University and MAs from Uppsala University and the American University of Paris.</p>
+        <p>I'm currently seeking roles in social media management, editorial content, or content marketing where storytelling, audience engagement, and strategic thinking intersect — with a particular interest in digital media and platform-native brand building.</p>
       </div>
       <div class="contact-row">
         <div>
@@ -121,8 +121,6 @@ html, body { height: 100%; overflow: hidden; font-family: 'Space Grotesk', sans-
     </div>
   </main>
 </div>
-
-
 <div class="ink-drop" id="inkDrop"></div>
 <script>
 (function() {
@@ -134,7 +132,7 @@ html, body { height: 100%; overflow: hidden; font-family: 'Space Grotesk', sans-
   document.addEventListener('mouseleave', () => drop.style.opacity = '0');
   document.addEventListener('mouseenter', () => drop.style.opacity = '1');
 
-  const interactables = 'a, button, .win-cell, .fs-cell, .skill-cell, .content-cell, .pillar-cell, .mandate-line, .format-row, .pub-row, .entry-video, .film-entry, .rb-cell, .qoq-cell, .lift-cell, .tl-item';
+  const interactables = 'a, button, .t-cta, .fs-cell, .page-nav a, .sidebar-link';
   document.querySelectorAll(interactables).forEach(el => {
     el.addEventListener('mouseenter', () => drop.classList.add('hovering'));
     el.addEventListener('mouseleave', () => drop.classList.remove('hovering'));
@@ -148,21 +146,22 @@ html, body { height: 100%; overflow: hidden; font-family: 'Space Grotesk', sans-
     px = lerp(px, cx, 0.28);
     py = lerp(py, cy, 0.28);
 
-    const stretch = Math.min(speed * 0.18, 1.8);
-    const angle = Math.atan2(vy, vx) * 180 / Math.PI;
-    const scaleX = 1 + stretch;
-    const scaleY = Math.max(1 - stretch * 0.45, 0.35);
+    if (!drop.classList.contains('hovering')) {
+      const stretch = Math.min(speed * 0.18, 1.8);
+      const angle = Math.atan2(vy, vx) * 180 / Math.PI;
+      const scaleX = 1 + stretch;
+      const scaleY = Math.max(1 - stretch * 0.45, 0.35);
+      drop.style.transform = `translate(-50%, -50%) rotate(${angle}deg) scaleX(${scaleX}) scaleY(${scaleY})`;
+    } else {
+      drop.style.transform = 'translate(-50%, -50%)';
+    }
 
     drop.style.left = px + 'px';
     drop.style.top  = py + 'px';
-    drop.style.transform = `translate(-50%, -50%) rotate(${angle}deg) scaleX(${scaleX}) scaleY(${scaleY})`;
-    drop.style.borderRadius = speed > 2 ? '40%' : '50%';
-
     requestAnimationFrame(tick);
   }
   tick();
 })();
 </script>
-
 </body>
 </html>
