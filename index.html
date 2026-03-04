@@ -103,7 +103,14 @@ html, body {
   width: 20px; height: 20px;
   background: transparent;
   border: 1.5px solid #e8a0c0;
-  mix-blend-mode: multiply;
+}
+
+/* ── SIDEBAR SCROLL PASSTHROUGH ── */
+.sidebar {
+  pointer-events: none;
+}
+.sidebar * {
+  pointer-events: auto;
 }
 </style>
 </head>
@@ -202,10 +209,12 @@ html, body {
   </main>
 </div>
 
-<div class="ink-drop" id="inkDrop"></div>
 <script>
 (function() {
-  const drop = document.getElementById('inkDrop');
+  const drop = document.createElement('div');
+  drop.className = 'ink-drop';
+  drop.id = 'inkDrop';
+  document.body.appendChild(drop);
   let cx = -100, cy = -100, px = -100, py = -100;
   let vx = 0, vy = 0;
 
@@ -243,6 +252,27 @@ html, body {
     requestAnimationFrame(tick);
   }
   tick();
+})();
+</script>
+
+
+<script>
+// scroll-passthrough: wheel on sidebar scrolls main content
+(function() {
+  function getScroller() {
+    return document.querySelector('.scroll-area') || document.querySelector('main') || document.documentElement;
+  }
+  var sidebar = document.querySelector('.sidebar');
+  if (!sidebar) return;
+  sidebar.addEventListener('wheel', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    var s = getScroller();
+    s.scrollTop += e.deltaY * 1.2;
+  }, { passive: false });
+  sidebar.addEventListener('touchmove', function(e) {
+    e.preventDefault();
+  }, { passive: false });
 })();
 </script>
 </body>

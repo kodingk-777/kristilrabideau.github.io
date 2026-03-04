@@ -266,6 +266,14 @@ svg.ring { width: 80px; height: 80px; }
   0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.9; }
   50%       { transform: translate(-50%, -50%) scale(1.18); opacity: 0.5; }
 }
+
+/* ── SIDEBAR SCROLL PASSTHROUGH ── */
+.sidebar {
+  pointer-events: none;
+}
+.sidebar * {
+  pointer-events: auto;
+}
 </style>
 </head>
 <body>
@@ -577,10 +585,12 @@ document.querySelectorAll('.reveal, #viz1, #viz2, #viz3, #viz4, #viz5').forEach(
 </div>
   </main>
 </div>
-<div class="ink-drop" id="inkDrop"></div>
 <script>
 (function() {
-  const drop = document.getElementById('inkDrop');
+  const drop = document.createElement('div');
+  drop.className = 'ink-drop';
+  drop.id = 'inkDrop';
+  document.body.appendChild(drop);
   let cx = -100, cy = -100, px = -100, py = -100;
   let vx = 0, vy = 0;
 
@@ -617,6 +627,27 @@ document.querySelectorAll('.reveal, #viz1, #viz2, #viz3, #viz4, #viz5').forEach(
     requestAnimationFrame(tick);
   }
   tick();
+})();
+</script>
+
+
+<script>
+// scroll-passthrough: wheel on sidebar scrolls main content
+(function() {
+  function getScroller() {
+    return document.querySelector('.scroll-area') || document.querySelector('main') || document.documentElement;
+  }
+  var sidebar = document.querySelector('.sidebar');
+  if (!sidebar) return;
+  sidebar.addEventListener('wheel', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    var s = getScroller();
+    s.scrollTop += e.deltaY * 1.2;
+  }, { passive: false });
+  sidebar.addEventListener('touchmove', function(e) {
+    e.preventDefault();
+  }, { passive: false });
 })();
 </script>
 </body>

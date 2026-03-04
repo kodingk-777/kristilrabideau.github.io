@@ -87,6 +87,14 @@ html, body { height: 100%; overflow: hidden; font-family: 'Space Grotesk', sans-
   0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.9; }
   50%       { transform: translate(-50%, -50%) scale(1.18); opacity: 0.5; }
 }
+
+/* ── SIDEBAR SCROLL PASSTHROUGH ── */
+.sidebar {
+  pointer-events: none;
+}
+.sidebar * {
+  pointer-events: auto;
+}
 </style>
 </head>
 <body>
@@ -111,7 +119,7 @@ html, body { height: 100%; overflow: hidden; font-family: 'Space Grotesk', sans-
       <div class="contact-row">
         <div>
           <span class="contact-label">Email</span>
-          <a class="contact-val" href="mailto:rabideaukristil@gmail.com">rabideaukristil@gmail.com</a>
+          <a class="contact-val" href="/cdn-cgi/l/email-protection#4032212229242521352b32293334292c00272d21292c6e232f2d"><span class="__cf_email__" data-cfemail="d0a2b1b2b9b4b5b1a5bba2b9a3a4b9bc90b7bdb1b9bcfeb3bfbd">[email&#160;protected]</span></a>
         </div>
         <div>
           <span class="contact-label">Phone</span>
@@ -122,7 +130,7 @@ html, body { height: 100%; overflow: hidden; font-family: 'Space Grotesk', sans-
   </main>
 </div>
 <div class="ink-drop" id="inkDrop"></div>
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 (function() {
   const drop = document.getElementById('inkDrop');
   let cx = -100, cy = -100, px = -100, py = -100;
@@ -151,17 +159,4 @@ html, body { height: 100%; overflow: hidden; font-family: 'Space Grotesk', sans-
       const angle = Math.atan2(vy, vx) * 180 / Math.PI;
       const scaleX = 1 + stretch;
       const scaleY = Math.max(1 - stretch * 0.45, 0.35);
-      drop.style.transform = `translate(-50%, -50%) rotate(${angle}deg) scaleX(${scaleX}) scaleY(${scaleY})`;
-    } else {
-      drop.style.transform = 'translate(-50%, -50%)';
-    }
-
-    drop.style.left = px + 'px';
-    drop.style.top  = py + 'px';
-    requestAnimationFrame(tick);
-  }
-  tick();
-})();
-</script>
-</body>
-</html>
+      drop.style.transform = `translate(-50%, -50%) rotate(${angle}deg) s
