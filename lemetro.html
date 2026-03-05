@@ -58,28 +58,58 @@ html, body { height: 100%; overflow: hidden; font-family: 'Space Grotesk', sans-
 
 /* ── ESSAY LIST ── */
 .essay-list { list-style: none; border-top: 1px solid var(--rule); }
-.essay-item { display: flex; justify-content: space-between; align-items: baseline; padding: 1rem 0; border-bottom: 1px solid var(--rule); gap: 1rem; position: relative; }
-.essay-title { font-size: 0.86rem; font-weight: 300; color: var(--ink); font-style: italic; transition: opacity 0.3s ease; }
-.essay-meta { font-size: 0.65rem; font-weight: 300; letter-spacing: 0.08em; color: var(--muted); white-space: nowrap; }
-.essay-item a { position: relative; }
-.essay-item a::after {
+.essay-item { position: relative; border-bottom: 1px solid var(--rule); }
+.essay-item a { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: baseline; 
+  padding: 1rem 1.5rem; 
+  gap: 1rem; 
+  text-decoration: none; 
+  color: inherit; 
+  width: 100%;
+  position: relative;
+  transition: background 0.3s ease;
+}
+.essay-item a:hover {
+  background: var(--accent-light);
+}
+.essay-item a::before {
   content: 'Read Essay';
   position: absolute;
-  left: 0;
-  top: 0;
-  font-size: 0.86rem;
-  font-weight: 300;
-  font-style: italic;
-  color: var(--accent);
+  left: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: var(--ink);
   opacity: 0;
   transition: opacity 0.3s ease;
-  pointer-events: none;
+}
+.essay-item a:hover::before {
+  opacity: 1;
+}
+.essay-title { 
+  font-size: 0.86rem; 
+  font-weight: 300; 
+  color: var(--ink); 
+  font-style: italic; 
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 .essay-item a:hover .essay-title {
   opacity: 0;
+  transform: translateX(20px);
 }
-.essay-item a:hover::after {
-  opacity: 0.6;
+.essay-meta { 
+  font-size: 0.65rem; 
+  font-weight: 300; 
+  letter-spacing: 0.08em; 
+  color: var(--muted); 
+  white-space: nowrap; 
+  transition: transform 0.3s ease;
+}
+.essay-item a:hover .essay-meta {
+  transform: translateX(-10px);
 }
 
 /* ── CURSOR ── */
@@ -137,19 +167,19 @@ html, body { height: 100%; overflow: hidden; font-family: 'Space Grotesk', sans-
         <div class="section-label">Featured Essays</div>
         <ul class="essay-list">
           <li class="essay-item">
-            <a href="https://lemetro.substack.com/p/clarices-bright-morning" target="_blank" style="text-decoration:none;color:inherit;display:flex;justify-content:space-between;align-items:baseline;width:100%;gap:1rem;">
+            <a href="https://lemetro.substack.com/p/clarices-bright-morning" target="_blank">
               <span class="essay-title">+ Clarice's Bright Morning</span>
               <span class="essay-meta">A look at light in Clarice Lispector's "The Triumph"</span>
             </a>
           </li>
           <li class="essay-item">
-            <a href="https://lemetro.substack.com/p/clarices-carceral-apparatus" target="_blank" style="text-decoration:none;color:inherit;display:flex;justify-content:space-between;align-items:baseline;width:100%;gap:1rem;">
+            <a href="https://lemetro.substack.com/p/clarices-carceral-apparatus" target="_blank">
               <span class="essay-title">+ Clarice's Carceral Apparatus</span>
               <span class="essay-meta">And a chicken's self-proclamation</span>
             </a>
           </li>
           <li class="essay-item">
-            <a href="https://lemetro.substack.com/p/clarices-ecological-ethics" target="_blank" style="text-decoration:none;color:inherit;display:flex;justify-content:space-between;align-items:baseline;width:100%;gap:1rem;">
+            <a href="https://lemetro.substack.com/p/clarices-ecological-ethics" target="_blank">
               <span class="essay-title">+ Clarice's Ecological Ethics</span>
               <span class="essay-meta">Between the semiotic and "some trace of an animal"</span>
             </a>
