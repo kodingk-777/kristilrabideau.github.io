@@ -338,7 +338,7 @@ body { background: #fff; color: var(--ink); font-family: 'Space Grotesk', sans-s
 
 <div class="page-nav">
   <a href="pers.html">← PERS</a>
-  <a class="nav-email" href="/cdn-cgi/l/email-protection#8dffecefe4e9e8ecf8e6ffe4fef9e4e1cdeae0ece4e1a3eee2e0"><span class="__cf_email__" data-cfemail="bbc9dad9d2dfdedaced0c9d2c8cfd2d7fbdcd6dad2d795d8d4d6">[email&#160;protected]</span></a>
+  <a class="nav-email" href="#" data-em></a>
   <a class="nav-pink" href="vawaa.html">VAWAA →</a>
 </div>
   </main>
@@ -385,6 +385,15 @@ body { background: #fff; color: var(--ink); font-family: 'Space Grotesk', sans-s
     requestAnimationFrame(tick);
   }
   tick();
+})();
+</script>
+<script>
+(function(){
+  var u='rabideaukristil',d='gmail.com';
+  document.querySelectorAll('[data-em]').forEach(function(a){
+    a.href='mailto:'+u+'@'+d;
+    a.textContent=u+'@'+d;
+  });
 })();
 </script>
 

@@ -415,7 +415,7 @@ body { background: #fff; color: var(--ink); font-family: 'Space Grotesk', sans-s
 
 <div class="page-nav">
   <a href="maison-toto.html">← Maison Toto</a>
-  <a class="nav-email" href="/cdn-cgi/l/email-protection#0e7c6f6c676a6b6f7b657c677d7a67624e69636f6762206d6163"><span class="__cf_email__" data-cfemail="c0b2a1a2a9a4a5a1b5abb2a9b3b4a9ac80a7ada1a9aceea3afad">[email&#160;protected]</span></a>
+  <a class="nav-email" href="#" data-em></a>
   <a class="nav-pink" href="writers.html">Studio R–M →</a>
 </div>
   </main>
@@ -462,6 +462,15 @@ body { background: #fff; color: var(--ink); font-family: 'Space Grotesk', sans-s
     requestAnimationFrame(tick);
   }
   tick();
+})();
+</script>
+<script>
+(function(){
+  var u='rabideaukristil',d='gmail.com';
+  document.querySelectorAll('[data-em]').forEach(function(a){
+    a.href='mailto:'+u+'@'+d;
+    a.textContent=u+'@'+d;
+  });
 })();
 </script>
 

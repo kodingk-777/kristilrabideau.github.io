@@ -647,7 +647,7 @@ document.querySelectorAll('.reveal, #viz1, #viz2, #viz3, #viz4, #viz5').forEach(
 
 <div class="page-nav">
   
-  <a class="nav-email" href="/cdn-cgi/l/email-protection#0c7e6d6e6568696d79677e657f7865604c6b616d6560226f6361"><span class="__cf_email__" data-cfemail="3042515259545551455b42594344595c70575d51595c1e535f5d">[email&#160;protected]</span></a>
+  <a class="nav-email" href="#" data-em></a>
   <a class="nav-pink" href="pers.html">PERS →</a>
 </div>
   </main>
@@ -694,6 +694,15 @@ document.querySelectorAll('.reveal, #viz1, #viz2, #viz3, #viz4, #viz5').forEach(
     requestAnimationFrame(tick);
   }
   tick();
+})();
+</script>
+<script>
+(function(){
+  var u='rabideaukristil',d='gmail.com';
+  document.querySelectorAll('[data-em]').forEach(function(a){
+    a.href='mailto:'+u+'@'+d;
+    a.textContent=u+'@'+d;
+  });
 })();
 </script>
 

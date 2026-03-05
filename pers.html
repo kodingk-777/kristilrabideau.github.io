@@ -417,7 +417,7 @@ body { background: #fff; color: var(--ink); font-family: 'Space Grotesk', sans-s
 
 <div class="page-nav">
   <a href="jellysmack_viz.html">← Jellysmack</a>
-  <a class="nav-email" href="/cdn-cgi/l/email-protection#0b796a69626f6e6a7e607962787f62674b6c666a626725686466"><span class="__cf_email__" data-cfemail="384a595a515c5d594d534a514b4c5154785f55595154165b5755">[email&#160;protected]</span></a>
+  <a class="nav-email" href="#" data-em></a>
   <a class="nav-pink" href="maison-toto.html">Maison Toto →</a>
 </div>
   </main>
@@ -464,6 +464,15 @@ body { background: #fff; color: var(--ink); font-family: 'Space Grotesk', sans-s
     requestAnimationFrame(tick);
   }
   tick();
+})();
+</script>
+<script>
+(function(){
+  var u='rabideaukristil',d='gmail.com';
+  document.querySelectorAll('[data-em]').forEach(function(a){
+    a.href='mailto:'+u+'@'+d;
+    a.textContent=u+'@'+d;
+  });
 })();
 </script>
 
