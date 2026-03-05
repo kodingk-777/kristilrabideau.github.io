@@ -159,68 +159,6 @@ body { background: #fff; color: var(--ink); font-family: 'Space Grotesk', sans-s
 .sidebar * {
   pointer-events: auto;
 }
-
-/* ── MOBILE ── */
-@media (max-width: 768px) {
-  html, body { overflow: auto; height: auto; }
-  .layout { display: block; }
-  .sidebar {
-    position: relative !important; width: 100% !important; height: auto !important;
-    flex-direction: row !important; align-items: center !important;
-    justify-content: space-between !important; text-align: left !important;
-    padding: 1rem 1.25rem !important; border-bottom: 1px solid #e0e0e0;
-    min-height: 0 !important;
-  }
-  .sidebar-roles { display: none !important; }
-  .sidebar-logo { margin-top: 0 !important; width: 32px !important; height: 32px !important; }
-  .sidebar-link { margin-top: 0 !important; }
-  .scroll-area { 
-    height: auto !important; overflow: visible !important; 
-    padding-left: 0 !important; margin-left: 0 !important;
-  }
-  .entry { padding: 1.5rem 1.25rem 0 !important; }
-  .site-footer { padding: 1rem 1.25rem 5rem !important; }
-  .wrap, .page { padding: 1.5rem 1.25rem 6rem !important; max-width: 100% !important; }
-  .reveal { opacity: 1 !important; transform: none !important; }
-  .page-nav { padding: 0.75rem 1.25rem !important; }
-  .about-footer { padding: 0.75rem 1.25rem !important; flex-wrap: wrap; gap: 1rem; }
-  .about-layout { flex-direction: column !important; }
-  .about-photo-wrap { width: 140px !important; margin: 0 auto !important; }
-  .cs-title { font-size: 2.5rem !important; }
-  .fs-grid, .wins-grid, .pillars-grid, .formats-grid { grid-template-columns: 1fr !important; }
-}
-
-/* ── FLOATING FOOTER ── */
-.page-nav {
-  position: fixed; bottom: 0; left: 0; right: 0;
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 1rem 2.5rem 1rem calc(var(--sidebar, 195px) + 2.5rem);
-  background: rgba(255,255,255,0.55);
-  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-  border-top: 1px solid rgba(224,224,224,0.6); z-index: 30;
-}
-.page-nav a { font-size: 0.72rem; font-weight: 400; color: var(--mid, #5a5a5a); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; }
-.page-nav a:hover { color: var(--ink, #2a2a2a); }
-.page-nav .nav-pink { color: var(--accent, #e8a0c0); }
-.page-nav .nav-email { font-size: 0.68rem; color: var(--muted, #999); text-decoration: none; }
-.page-nav .nav-email:hover { color: var(--ink, #2a2a2a); }
-
-/* ── SIDEBAR FONT SIZES ── */
-.sidebar-name { font-size: 0.85rem !important; }
-.sidebar-roles { font-size: 0.75rem !important; }
-.sidebar-link { font-size: 0.75rem !important; }
-
-/* ── AUDIO TOGGLE ── */
-.video-wrap { position: relative; }
-.audio-btn {
-  position: absolute; bottom: 0.75rem; right: 0.75rem;
-  background: rgba(0,0,0,0.45); border: none; border-radius: 50%;
-  width: 32px; height: 32px; cursor: pointer !important;
-  display: flex; align-items: center; justify-content: center;
-  color: #fff; font-size: 0.75rem; z-index: 10;
-  transition: background 0.2s;
-}
-.audio-btn:hover { background: rgba(0,0,0,0.7); }
 </style>
 </head>
 <body>
@@ -298,8 +236,7 @@ body { background: #fff; color: var(--ink); font-family: 'Space Grotesk', sans-s
   <!-- NIKE BOXING -->
   <div class="film-entry" id="nike-boxing">
     <div class="film-video">
-      <div class="video-wrap"><video src="nike-boxing.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;">
-        <button class="audio-btn" onclick="var v=this.previousElementSibling;v.muted=!v.muted;this.textContent=v.muted?'🔇':'🔊'">🔇</button></div></video>
+      <video src="nike-boxing.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;"></video>
       <div class="film-video-ph"><span>Nike Boxing</span></div>
     </div>
         <div class="film-body">
@@ -321,8 +258,7 @@ body { background: #fff; color: var(--ink); font-family: 'Space Grotesk', sans-s
   <!-- SETTING THINGS ON FIRE -->
   <div class="film-entry" id="setting-things-on-fire">
     <div class="film-video">
-      <div class="video-wrap"><video src="setting-things-on-fire.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;">
-        <button class="audio-btn" onclick="var v=this.previousElementSibling;v.muted=!v.muted;this.textContent=v.muted?'🔇':'🔊'">🔇</button></div></video>
+      <video src="setting-things-on-fire.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;"></video>
       <div class="film-video-ph"><span>Setting Things on Fire</span></div>
     </div>
         <div class="film-body">
@@ -344,8 +280,7 @@ body { background: #fff; color: var(--ink); font-family: 'Space Grotesk', sans-s
   <!-- CITY OF LOVE -->
   <div class="film-entry" id="city-of-love">
     <div class="film-video">
-      <div class="video-wrap"><video src="city-of-love.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;">
-        <button class="audio-btn" onclick="var v=this.previousElementSibling;v.muted=!v.muted;this.textContent=v.muted?'🔇':'🔊'">🔇</button></div></video>
+      <video src="city-of-love.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;"></video>
       <div class="film-video-ph"><span>City of Love</span></div>
     </div>
         <div class="film-body">
@@ -366,7 +301,6 @@ body { background: #fff; color: var(--ink); font-family: 'Space Grotesk', sans-s
 
 <div class="page-nav">
   <a href="writers.html">← Studio R–M</a>
-  <a class="nav-email" href="#" data-em></a>
   
 </div>
   </main>
@@ -434,14 +368,6 @@ body { background: #fff; color: var(--ink); font-family: 'Space Grotesk', sans-s
   sidebar.addEventListener('touchmove', function(e) {
     e.preventDefault();
   }, { passive: false });
-})();
-</script>
-<script>
-(function(){
-  var u='rabideaukristil',d='gmail.com';
-  document.querySelectorAll('[data-em]').forEach(function(a){
-    a.href='mailto:'+u+'@'+d; a.textContent=u+'@'+d;
-  });
 })();
 </script>
 </body>
