@@ -24,10 +24,10 @@ html, body { height: 100%; overflow: hidden; font-family: 'Space Grotesk', sans-
   pointer-events: none;
 }
 .sidebar * { pointer-events: auto; }
-.sidebar-name { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.04em; line-height: 1.35; color: var(--ink); }
-.sidebar-roles { font-size: 0.65rem; font-weight: 300; color: var(--mid); line-height: 1.65; margin-top: 0.35rem; }
+.sidebar-name { font-size: 0.85rem; font-weight: 500; letter-spacing: 0.04em; line-height: 1.35; color: var(--ink); }
+.sidebar-roles { font-size: 0.75rem; font-weight: 300; color: var(--mid); line-height: 1.65; margin-top: 0.35rem; }
 .sidebar-logo { margin-top: 1.1rem; width: 64px; height: 64px; object-fit: contain; }
-.sidebar-link { margin-top: 1rem; font-size: 0.65rem; font-weight: 300; color: var(--mid); text-decoration: none; }
+.sidebar-link { margin-top: 1rem; font-size: 0.75rem; font-weight: 300; color: var(--mid); text-decoration: none; }
 .sidebar-link:hover { color: var(--ink); }
 
 /* scroll */
@@ -83,6 +83,46 @@ html, body { height: 100%; overflow: hidden; font-family: 'Space Grotesk', sans-
   0%, 100% { transform: translate(-50%,-50%) scale(1); opacity: 0.9; }
   50%       { transform: translate(-50%,-50%) scale(1.18); opacity: 0.45; }
 }
+
+/* ── MOBILE ── */
+@media (max-width: 768px) {
+  html, body { overflow: hidden auto; height: auto; }
+  .layout { flex-direction: column; height: auto; min-height: 100vh; }
+
+  .sidebar {
+    position: relative; width: 100%; height: auto;
+    flex-direction: row; align-items: center; justify-content: space-between;
+    text-align: left; padding: 1.2rem 1.5rem;
+    border-bottom: 1px solid var(--rule, #e0e0e0);
+    flex-wrap: wrap; gap: 0.5rem;
+  }
+  .sidebar-name { font-size: 0.78rem; }
+  .sidebar-roles { display: none; }
+  .sidebar-logo { margin-top: 0; width: 36px; height: 36px; }
+  .sidebar-link { margin-top: 0; font-size: 0.72rem; }
+
+  .scroll-area {
+    height: auto; overflow: visible;
+    padding-left: 0 !important;
+  }
+  .wrap, .page {
+    padding: 2rem 1.25rem 6rem !important;
+    max-width: 100% !important;
+  }
+  .page-nav {
+    padding: 0.85rem 1.25rem !important;
+    font-size: 0.68rem;
+  }
+  .about-footer {
+    padding: 0.85rem 1.25rem !important;
+    flex-wrap: wrap; gap: 1rem;
+  }
+  .about-layout { flex-direction: column; gap: 2rem; }
+  .about-photo-wrap { width: 120px; margin: 0 auto; }
+  .fs-grid { grid-template-columns: 1fr !important; }
+  .hd-title, .cs-title { font-size: clamp(2rem, 10vw, 3.5rem) !important; }
+}
+
 </style>
 </head>
 <body>
@@ -115,7 +155,7 @@ html, body { height: 100%; overflow: hidden; font-family: 'Space Grotesk', sans-
 <div class="about-footer">
   <div>
     <span class="contact-label">Email</span>
-    <a class="contact-val" href="mailto:rabideaukristil@gmail.com">rabideaukristil@gmail.com</a>
+    <a class="contact-val" href="/cdn-cgi/l/email-protection#c9bba8aba0adaca8bca2bba0babda0a589aea4a8a0a5e7aaa6a4"><span class="__cf_email__" data-cfemail="7e0c1f1c171a1b1f0b150c170d0a17123e19131f1712501d1113">[email&#160;protected]</span></a>
   </div>
   <div>
     <span class="contact-label">Phone</span>
@@ -123,7 +163,7 @@ html, body { height: 100%; overflow: hidden; font-family: 'Space Grotesk', sans-
   </div>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 (function() {
   const drop = document.createElement('div');
   drop.className = 'ink-drop';
@@ -150,9 +190,3 @@ html, body { height: 100%; overflow: hidden; font-family: 'Space Grotesk', sans-
   tick();
 
   // sidebar scroll passthrough
-  const sb = document.querySelector('.sidebar'), sc = document.querySelector('.scroll-area');
-  if (sb && sc) sb.addEventListener('wheel', e => { e.preventDefault(); sc.scrollTop += e.deltaY * 1.2; }, { passive: false });
-})();
-</script>
-</body>
-</html>
