@@ -162,18 +162,23 @@ html, body { height: 100%; overflow: hidden; font-family: 'Space Grotesk', sans-
 
       <p class="cs-intro">Founded and edited Para Clarice, a Substack publication devoted to close readings of and critical essays on the work of Clarice Lispector. Responsible for all aspects of the publication — concept development, writing, editing, visual identity, and organic audience growth strategy.</p>
 
-      <!-- FEATURED ESSAYS -->
+      <!-- PUBLICATION LINK -->
       <div class="section-block">
         <div class="section-label">Publication</div>
         <ul class="essay-list">
-          <li class="essay-item">
+          <li class="essay-item" id="pub-link">
             <a href="https://paraclarice.substack.com" target="_blank">
-              <span class="essay-title">+ paraclarice.substack.com</span>
-              <span class="essay-meta">Read on Substack</span>
+              <span class="essay-title" style="font-style:normal;">Read Para Clarice</span>
+              <span class="essay-meta" style="opacity:0;transition:opacity 0.3s ease,transform 0.3s ease;">paraclarice.substack.com</span>
             </a>
           </li>
         </ul>
       </div>
+      <style>
+        #pub-link a::before { display: none; }
+        #pub-link a:hover .essay-title { opacity: 1; transform: none; }
+        #pub-link a:hover .essay-meta { opacity: 1 !important; transform: none; }
+      </style>
 
       <!-- STATS -->
       <div class="section-block">
